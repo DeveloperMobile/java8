@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * @author tiago
  */
-public class Produto implements Serializable {
+public class Produto implements Serializable, DAO, Estoque {
     
     private int codigo;
     private String descricao;
@@ -26,6 +26,26 @@ public class Produto implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public void inserir() {
+        
+    }
+
+    @Override
+    public void excluir() {
+        
+    }
+
+    @Override
+    public void localizar() {
+        
+    }
+
+    @Override
+    public void baixar() {
+        
     }
     
 }
