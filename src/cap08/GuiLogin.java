@@ -73,6 +73,7 @@ public class GuiLogin extends JFrame {
                 if (tfLogin.getText().equals("java8") && senha.equals("java8")) {
                     
                     frame.setVisible(false);
+                    GuiMenuPrincipal.abrir();
                     
                 } else {
                     
