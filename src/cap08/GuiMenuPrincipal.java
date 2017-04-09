@@ -76,6 +76,10 @@ public class GuiMenuPrincipal extends JFrame {
             public void actionPerformed(ActionEvent e) {
             
                 /* Aqui vai o código para chamar o exemplo 8.3 */
+                GuiBotao botao = new GuiBotao();
+                contentPane.removeAll();
+                contentPane.add(botao);
+                contentPane.validate();
            
             }
             
