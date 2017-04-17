@@ -23,7 +23,7 @@ public class GuiMenuPrincipal extends JFrame {
     private Container contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
-    private JMenuItem miSair, miBotao;
+    private JMenuItem miSair, miBotao, miCaixaOpcao;
     
     public GuiMenuPrincipal() {
         
@@ -49,8 +49,10 @@ public class GuiMenuPrincipal extends JFrame {
         miSair.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_S, ActionEvent.ALT_MASK));
         miBotao = new JMenuItem("Botao");
+        miCaixaOpcao = new JMenuItem("Caica de Opção");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
+        mnExemplos.add(miCaixaOpcao);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -81,6 +83,20 @@ public class GuiMenuPrincipal extends JFrame {
                 contentPane.add(botao);
                 contentPane.validate();
            
+            }
+            
+        });
+        
+        miCaixaOpcao.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiCaixaOpcao guiCaixaOpcao = new GuiCaixaOpcao();
+                contentPane.removeAll();
+                contentPane.add(guiCaixaOpcao);
+                contentPane.validate();
+                
             }
             
         });
