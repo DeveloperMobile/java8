@@ -39,7 +39,7 @@ public class GuiCaixaOpcao extends JPanel {
         add(btDesmarcar);
         btVerificar.setBounds(20, 70, 100, 20);
         ckIngles.setBounds(15, 15, 100, 25);
-        ckInformatica.setBounds(15, 40, 100, 25);
+        ckInformatica.setBounds(15, 40, 105, 25);
         btMarcar.setBounds(20, 100, 100, 20);
         btDesmarcar.setBounds(20, 130, 100, 20);
         

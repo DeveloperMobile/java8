@@ -23,7 +23,7 @@ public class GuiMenuPrincipal extends JFrame {
     private Container contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
-    private JMenuItem miSair, miBotao, miCaixaOpcao;
+    private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio;
     
     public GuiMenuPrincipal() {
         
@@ -49,10 +49,12 @@ public class GuiMenuPrincipal extends JFrame {
         miSair.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_S, ActionEvent.ALT_MASK));
         miBotao = new JMenuItem("Botao");
-        miCaixaOpcao = new JMenuItem("Caica de Opção");
+        miCaixaOpcao = new JMenuItem("Caixa de Opção");
+        miRadio = new JMenuItem("Botao de Radio");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
+        mnExemplos.add(miRadio);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -97,6 +99,20 @@ public class GuiMenuPrincipal extends JFrame {
                 contentPane.add(guiCaixaOpcao);
                 contentPane.validate();
                 
+            }
+            
+        });
+        
+        miRadio.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+            
+                GuiRadio guiRadio = new GuiRadio();
+                contentPane.removeAll();
+                contentPane.add(guiRadio);
+                contentPane.validate();
+            
             }
             
         });
