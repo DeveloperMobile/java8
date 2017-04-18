@@ -23,7 +23,7 @@ public class GuiMenuPrincipal extends JFrame {
     private Container contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
-    private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio;
+    private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels;
     
     public GuiMenuPrincipal() {
         
@@ -51,10 +51,12 @@ public class GuiMenuPrincipal extends JFrame {
         miBotao = new JMenuItem("Botao");
         miCaixaOpcao = new JMenuItem("Caixa de Opção");
         miRadio = new JMenuItem("Botao de Radio");
+        miLabels = new JMenuItem("Labels");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
         mnExemplos.add(miRadio);
+        mnExemplos.add(miLabels);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -113,6 +115,20 @@ public class GuiMenuPrincipal extends JFrame {
                 contentPane.add(guiRadio);
                 contentPane.validate();
             
+            }
+            
+        });
+        
+        miLabels.addActionListener(new ActionListener() {
+           
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiLabel guiLabel = new GuiLabel();
+                contentPane.removeAll();
+                contentPane.add(guiLabel);
+                contentPane.validate();
+                
             }
             
         });
