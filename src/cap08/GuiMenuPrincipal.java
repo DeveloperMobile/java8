@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -23,7 +24,8 @@ public class GuiMenuPrincipal extends JFrame {
     private Container contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
-    private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels;
+    private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
+            miLista, miListaFoto;
     
     public GuiMenuPrincipal() {
         
@@ -52,11 +54,15 @@ public class GuiMenuPrincipal extends JFrame {
         miCaixaOpcao = new JMenuItem("Caixa de Opção");
         miRadio = new JMenuItem("Botao de Radio");
         miLabels = new JMenuItem("Labels");
+        miLista = new JMenuItem("Lista de Seleção");
+        miListaFoto = new JMenuItem("Lista Com Foto");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
         mnExemplos.add(miRadio);
         mnExemplos.add(miLabels);
+        mnExemplos.add(miLista);
+        mnExemplos.add(miListaFoto);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -129,6 +135,34 @@ public class GuiMenuPrincipal extends JFrame {
                 contentPane.add(guiLabel);
                 contentPane.validate();
                 
+            }
+            
+        });
+        
+        miLista.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiLista guiLista = new GuiLista();
+                contentPane.removeAll();
+                contentPane.add(guiLista);
+                contentPane.validate();
+            
+            }
+            
+        });
+        
+        miListaFoto.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiListaComFotos guiListaComFotos = new GuiListaComFotos();
+                contentPane.removeAll();
+                contentPane.add(guiListaComFotos);
+                contentPane.validate();
+            
             }
             
         });
