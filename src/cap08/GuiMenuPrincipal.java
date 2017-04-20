@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
-import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -25,7 +24,7 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
-            miLista, miListaFoto;
+            miLista, miListaFoto, miCombo;
     
     public GuiMenuPrincipal() {
         
@@ -56,6 +55,7 @@ public class GuiMenuPrincipal extends JFrame {
         miLabels = new JMenuItem("Labels");
         miLista = new JMenuItem("Lista de Seleção");
         miListaFoto = new JMenuItem("Lista Com Foto");
+        miCombo = new JMenuItem("JComboBox");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
@@ -63,6 +63,7 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miLabels);
         mnExemplos.add(miLista);
         mnExemplos.add(miListaFoto);
+        mnExemplos.add(miCombo);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -161,6 +162,20 @@ public class GuiMenuPrincipal extends JFrame {
                 GuiListaComFotos guiListaComFotos = new GuiListaComFotos();
                 contentPane.removeAll();
                 contentPane.add(guiListaComFotos);
+                contentPane.validate();
+            
+            }
+            
+        });
+        
+        miCombo.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiCombo guiCombo = new GuiCombo();
+                contentPane.removeAll();
+                contentPane.add(guiCombo);
                 contentPane.validate();
             
             }
