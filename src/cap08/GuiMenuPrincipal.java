@@ -24,7 +24,7 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
-            miLista, miListaFoto, miCombo;
+            miLista, miListaFoto, miCombo, miAreaTexto;
     
     public GuiMenuPrincipal() {
         
@@ -56,6 +56,7 @@ public class GuiMenuPrincipal extends JFrame {
         miLista = new JMenuItem("Lista de Seleção");
         miListaFoto = new JMenuItem("Lista Com Foto");
         miCombo = new JMenuItem("JComboBox");
+        miAreaTexto = new JMenuItem("Area de Texto");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
@@ -64,6 +65,7 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miLista);
         mnExemplos.add(miListaFoto);
         mnExemplos.add(miCombo);
+        mnExemplos.add(miAreaTexto);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -176,6 +178,20 @@ public class GuiMenuPrincipal extends JFrame {
                 GuiCombo guiCombo = new GuiCombo();
                 contentPane.removeAll();
                 contentPane.add(guiCombo);
+                contentPane.validate();
+            
+            }
+            
+        });
+        
+        miAreaTexto.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiAreaDeTexto guiAreaDeTexto = new GuiAreaDeTexto();
+                contentPane.removeAll();
+                contentPane.add(guiAreaDeTexto);
                 contentPane.validate();
             
             }

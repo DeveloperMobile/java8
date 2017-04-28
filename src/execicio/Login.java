@@ -5,12 +5,18 @@
  */
 package execicio;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Login
  */
 public class Login extends javax.swing.JFrame {
 
+    private static Login frame;
+    
     /**
      * Creates new form Login
      */
@@ -132,7 +138,14 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                
+                frame = new Login();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
+                frame.setLocation((tela.width - frame.getSize().width) / 2, 
+                        (tela.height - frame.getSize().height) / 2);
+                frame.setVisible(true);
+                
             }
         });
     }
