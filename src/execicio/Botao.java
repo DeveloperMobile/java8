@@ -33,7 +33,7 @@ public class Botao extends javax.swing.JPanel {
         btMensagem = new javax.swing.JButton();
         btTeimoso = new javax.swing.JButton();
 
-        btMensagem.setIcon(new javax.swing.ImageIcon("C:\\Users\\Login\\Documents\\GitHub\\java8\\img\\java.png")); // NOI18N
+        btMensagem.setIcon(new javax.swing.ImageIcon("/home/tiago/git/java8/img/java.png")); // NOI18N
         btMensagem.setMnemonic(KeyEvent.VK_M);
         btMensagem.setText("Mensagem");
         btMensagem.setToolTipText("Clique aqui para ver a mensagem");
@@ -67,7 +67,7 @@ public class Botao extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btMensagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btTeimoso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,8 +75,8 @@ public class Botao extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btMensagem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btTeimoso, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addComponent(btTeimoso, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

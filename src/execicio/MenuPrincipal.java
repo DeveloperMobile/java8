@@ -37,6 +37,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         miSair = new javax.swing.JMenuItem();
         mnExemplos = new javax.swing.JMenu();
         miBotao = new javax.swing.JMenuItem();
+        miCaixaOpcao = new javax.swing.JMenuItem();
+        miRadio = new javax.swing.JMenuItem();
+        miLabels = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal");
@@ -47,7 +50,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         mnArquivo.setText("Arquivo");
 
         miSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        miSair.setIcon(new javax.swing.ImageIcon("C:\\Users\\Login\\Documents\\GitHub\\java8\\img\\sair.png")); // NOI18N
+        miSair.setIcon(new javax.swing.ImageIcon("/home/tiago/git/java8/img/sair.png")); // NOI18N
         miSair.setText("Sair");
         miSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +72,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         mnExemplos.add(miBotao);
 
+        miCaixaOpcao.setText("Caixa de Opção");
+        miCaixaOpcao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCaixaOpcaoActionPerformed(evt);
+            }
+        });
+        mnExemplos.add(miCaixaOpcao);
+
+        miRadio.setText("Botao de Radio");
+        miRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miRadioActionPerformed(evt);
+            }
+        });
+        mnExemplos.add(miRadio);
+
+        miLabels.setText("Labels");
+        miLabels.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miLabelsActionPerformed(evt);
+            }
+        });
+        mnExemplos.add(miLabels);
+
         jMenuBar1.add(mnExemplos);
 
         setJMenuBar(jMenuBar1);
@@ -77,11 +104,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(contentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(contentPane, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -92,10 +123,38 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_miSairActionPerformed
 
     private void miBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBotaoActionPerformed
-        //Botao botao = new Botao();
-        contentPane.add(new Botao());
+        Botao botao = new Botao();
+        contentPane.removeAll();
+        contentPane.add(botao);
         contentPane.validate();
     }//GEN-LAST:event_miBotaoActionPerformed
+
+    private void miCaixaOpcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCaixaOpcaoActionPerformed
+        
+        CaixaOpcao caixaOpcao = new CaixaOpcao();
+        contentPane.removeAll();
+        contentPane.add(caixaOpcao);
+        contentPane.validate();
+        
+    }//GEN-LAST:event_miCaixaOpcaoActionPerformed
+
+    private void miRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRadioActionPerformed
+        
+        Radio radio = new Radio();
+        contentPane.removeAll();
+        contentPane.add(radio);
+        contentPane.validate();
+        
+    }//GEN-LAST:event_miRadioActionPerformed
+
+    private void miLabelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLabelsActionPerformed
+        
+        Lables lables = new Lables();
+        contentPane.removeAll();
+        contentPane.add(lables);
+        contentPane.validate();
+        
+    }//GEN-LAST:event_miLabelsActionPerformed
 
     
     public static void abrir() {
@@ -112,6 +171,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel contentPane;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem miBotao;
+    private javax.swing.JMenuItem miCaixaOpcao;
+    private javax.swing.JMenuItem miLabels;
+    private javax.swing.JMenuItem miRadio;
     private javax.swing.JMenuItem miSair;
     private javax.swing.JMenu mnArquivo;
     private javax.swing.JMenu mnExemplos;
