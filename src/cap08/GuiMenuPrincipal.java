@@ -24,7 +24,8 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
-            miLista, miListaFoto, miCombo, miAreaTexto;
+            miLista, miListaFoto, miCombo, miAreaTexto, miDialogoMensagem,
+            miDialogoConfirmacao, miDialogoOpcao;
     
     public GuiMenuPrincipal() {
         
@@ -57,6 +58,9 @@ public class GuiMenuPrincipal extends JFrame {
         miListaFoto = new JMenuItem("Lista Com Foto");
         miCombo = new JMenuItem("JComboBox");
         miAreaTexto = new JMenuItem("Area de Texto");
+        miDialogoMensagem = new JMenuItem("Dialog Mensagem");
+        miDialogoConfirmacao = new JMenuItem("Dialogo Confirmação");
+        miDialogoOpcao = new JMenuItem("Dialogo Opção");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
@@ -66,6 +70,9 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miListaFoto);
         mnExemplos.add(miCombo);
         mnExemplos.add(miAreaTexto);
+        mnExemplos.add(miDialogoMensagem);
+        mnExemplos.add(miDialogoConfirmacao);
+        mnExemplos.add(miDialogoOpcao);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -192,6 +199,48 @@ public class GuiMenuPrincipal extends JFrame {
                 GuiAreaDeTexto guiAreaDeTexto = new GuiAreaDeTexto();
                 contentPane.removeAll();
                 contentPane.add(guiAreaDeTexto);
+                contentPane.validate();
+            
+            }
+            
+        });
+        
+        miDialogoMensagem.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiDialogoMensagem guiDialogoMensagem = new GuiDialogoMensagem();
+                contentPane.removeAll();
+                contentPane.add(guiDialogoMensagem);
+                contentPane.validate();
+            
+            }
+            
+        });
+        
+        miDialogoConfirmacao.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiDialogoConfirmacao guiDialogoConfirmacao = new GuiDialogoConfirmacao();
+                contentPane.removeAll();
+                contentPane.add(guiDialogoConfirmacao);
+                contentPane.validate();
+            
+            }
+            
+        });
+        
+        miDialogoOpcao.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiDialogoOpcao guiDialogoOpcao = new GuiDialogoOpcao();
+                contentPane.removeAll();
+                contentPane.add(guiDialogoOpcao);
                 contentPane.validate();
             
             }
