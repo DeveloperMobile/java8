@@ -25,7 +25,7 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
             miLista, miListaFoto, miCombo, miAreaTexto, miDialogoMensagem,
-            miDialogoConfirmacao, miDialogoOpcao, miBarraRolagem;
+            miDialogoConfirmacao, miDialogoOpcao, miBarraRolagem, miBarraProgresso;
     
     public GuiMenuPrincipal() {
         
@@ -62,6 +62,7 @@ public class GuiMenuPrincipal extends JFrame {
         miDialogoConfirmacao = new JMenuItem("Dialogo Confirmação");
         miDialogoOpcao = new JMenuItem("Dialogo Opção");
         miBarraRolagem = new JMenuItem("Barra de Rolagem");
+        miBarraProgresso = new JMenuItem("Barra de Progresso");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
@@ -75,6 +76,7 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miDialogoConfirmacao);
         mnExemplos.add(miDialogoOpcao);
         mnExemplos.add(miBarraRolagem);
+        mnExemplos.add(miBarraProgresso);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -83,183 +85,101 @@ public class GuiMenuPrincipal extends JFrame {
     
     private void definirEventos() {
         
-        miSair.addActionListener(new ActionListener() {
-           
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                System.exit(0);
-                
-            }
-            
+        miSair.addActionListener((ActionEvent e) -> {
+            System.exit(0);
         });
      
-        miBotao.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                /* Aqui vai o código para chamar o exemplo 8.3 */
-                GuiBotao botao = new GuiBotao();
-                contentPane.removeAll();
-                contentPane.add(botao);
-                contentPane.validate();
-           
-            }
-            
+        miBotao.addActionListener((ActionEvent e) -> {
+            /* Aqui vai o código para chamar o exemplo 8.3 */
+            GuiBotao botao = new GuiBotao();
+            contentPane.removeAll();
+            contentPane.add(botao);
+            contentPane.validate();
         });
         
-        miCaixaOpcao.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiCaixaOpcao guiCaixaOpcao = new GuiCaixaOpcao();
-                contentPane.removeAll();
-                contentPane.add(guiCaixaOpcao);
-                contentPane.validate();
-                
-            }
-            
+        miCaixaOpcao.addActionListener((ActionEvent e) -> {
+            GuiCaixaOpcao guiCaixaOpcao = new GuiCaixaOpcao();
+            contentPane.removeAll();
+            contentPane.add(guiCaixaOpcao);
+            contentPane.validate();
         });
         
-        miRadio.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-            
-                GuiRadio guiRadio = new GuiRadio();
-                contentPane.removeAll();
-                contentPane.add(guiRadio);
-                contentPane.validate();
-            
-            }
-            
+        miRadio.addActionListener((ActionEvent ae) -> {
+            GuiRadio guiRadio = new GuiRadio();
+            contentPane.removeAll();
+            contentPane.add(guiRadio);
+            contentPane.validate();
         });
         
-        miLabels.addActionListener(new ActionListener() {
-           
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiLabel guiLabel = new GuiLabel();
-                contentPane.removeAll();
-                contentPane.add(guiLabel);
-                contentPane.validate();
-                
-            }
-            
+        miLabels.addActionListener((ActionEvent e) -> {
+            GuiLabel guiLabel = new GuiLabel();
+            contentPane.removeAll();
+            contentPane.add(guiLabel);
+            contentPane.validate();
         });
         
-        miLista.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiLista guiLista = new GuiLista();
-                contentPane.removeAll();
-                contentPane.add(guiLista);
-                contentPane.validate();
-            
-            }
-            
+        miLista.addActionListener((ActionEvent e) -> {
+            GuiLista guiLista = new GuiLista();
+            contentPane.removeAll();
+            contentPane.add(guiLista);
+            contentPane.validate();
         });
         
-        miListaFoto.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiListaComFotos guiListaComFotos = new GuiListaComFotos();
-                contentPane.removeAll();
-                contentPane.add(guiListaComFotos);
-                contentPane.validate();
-            
-            }
-            
+        miListaFoto.addActionListener((ActionEvent e) -> {
+            GuiListaComFotos guiListaComFotos = new GuiListaComFotos();
+            contentPane.removeAll();
+            contentPane.add(guiListaComFotos);
+            contentPane.validate();
         });
         
-        miCombo.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiCombo guiCombo = new GuiCombo();
-                contentPane.removeAll();
-                contentPane.add(guiCombo);
-                contentPane.validate();
-            
-            }
-            
+        miCombo.addActionListener((ActionEvent e) -> {
+            GuiCombo guiCombo = new GuiCombo();
+            contentPane.removeAll();
+            contentPane.add(guiCombo);
+            contentPane.validate();
         });
         
-        miAreaTexto.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiAreaDeTexto guiAreaDeTexto = new GuiAreaDeTexto();
-                contentPane.removeAll();
-                contentPane.add(guiAreaDeTexto);
-                contentPane.validate();
-            
-            }
-            
+        miAreaTexto.addActionListener((ActionEvent e) -> {
+            GuiAreaDeTexto guiAreaDeTexto = new GuiAreaDeTexto();
+            contentPane.removeAll();
+            contentPane.add(guiAreaDeTexto);
+            contentPane.validate();
         });
         
-        miDialogoMensagem.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiDialogoMensagem guiDialogoMensagem = new GuiDialogoMensagem();
-                contentPane.removeAll();
-                contentPane.add(guiDialogoMensagem);
-                contentPane.validate();
-            
-            }
-            
+        miDialogoMensagem.addActionListener((ActionEvent e) -> {
+            GuiDialogoMensagem guiDialogoMensagem = new GuiDialogoMensagem();
+            contentPane.removeAll();
+            contentPane.add(guiDialogoMensagem);
+            contentPane.validate();
         });
         
-        miDialogoConfirmacao.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiDialogoConfirmacao guiDialogoConfirmacao = new GuiDialogoConfirmacao();
-                contentPane.removeAll();
-                contentPane.add(guiDialogoConfirmacao);
-                contentPane.validate();
-            
-            }
-            
+        miDialogoConfirmacao.addActionListener((ActionEvent e) -> {
+            GuiDialogoConfirmacao guiDialogoConfirmacao = new GuiDialogoConfirmacao();
+            contentPane.removeAll();
+            contentPane.add(guiDialogoConfirmacao);
+            contentPane.validate();
         });
         
-        miDialogoOpcao.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiDialogoOpcao guiDialogoOpcao = new GuiDialogoOpcao();
-                contentPane.removeAll();
-                contentPane.add(guiDialogoOpcao);
-                contentPane.validate();
-            
-            }
-            
+        miDialogoOpcao.addActionListener((ActionEvent e) -> {
+            GuiDialogoOpcao guiDialogoOpcao = new GuiDialogoOpcao();
+            contentPane.removeAll();
+            contentPane.add(guiDialogoOpcao);
+            contentPane.validate();
         });
         
-        miBarraRolagem.addActionListener(new ActionListener() {
-            
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            
-                GuiBarraRolagem guiBarraRolagem = new GuiBarraRolagem();
-                contentPane.removeAll();
-                contentPane.add(guiBarraRolagem);
-                contentPane.validate();
-            
-            }
+        miBarraRolagem.addActionListener((ActionEvent e) -> {
+            GuiBarraRolagem guiBarraRolagem = new GuiBarraRolagem();
+            contentPane.removeAll();
+            contentPane.add(guiBarraRolagem);
+            contentPane.validate();
+        });
+        
+        miBarraProgresso.addActionListener((e) -> {
+        
+            GuiBarraProgresso guiBarraProgresso = new GuiBarraProgresso();
+            contentPane.removeAll();
+            contentPane.add(guiBarraProgresso);
+            contentPane.validate();
             
         });
         
