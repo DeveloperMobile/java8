@@ -5,7 +5,6 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -26,6 +25,7 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
             miLista, miListaFoto, miCombo, miAreaTexto, miDialogoMensagem,
             miDialogoConfirmacao, miDialogoOpcao, miBarraRolagem, miBarraProgresso;
+    private ImageIcon imageIcon;
     
     public GuiMenuPrincipal() {
         
@@ -39,6 +39,8 @@ public class GuiMenuPrincipal extends JFrame {
         setTitle("Menu Principal");
         setBounds(0, 0, 800, 600);
         contentPane = getContentPane();
+        /* Imagem */
+        imageIcon = new ImageIcon("img/sair.png");
         /* Barra de Menu */
         mnBarra = new JMenuBar();
         /* Menu */
@@ -47,7 +49,7 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos = new JMenu("Exemplos");
         mnExemplos.setMnemonic('E');
         /* Item de Menu */
-        miSair = new JMenuItem("Sair", new ImageIcon("img/sair.png"));
+        miSair = new JMenuItem("Sair", imageIcon);
         miSair.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_S, ActionEvent.ALT_MASK));
         miBotao = new JMenuItem("Botao");

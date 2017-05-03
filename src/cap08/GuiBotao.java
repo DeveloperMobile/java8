@@ -30,7 +30,7 @@ public class GuiBotao extends JPanel {
     private void inicializarComponentes() {
         
         setLayout(null);
-        /* Image Icon */
+        /* Image Icon */     
         imageIcon1 = new ImageIcon("img/java.png");
         /* Buttons */
         btMensagem = new JButton("Mensagem", imageIcon1);

@@ -50,7 +50,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         mnArquivo.setText("Arquivo");
 
         miSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        miSair.setIcon(new javax.swing.ImageIcon("/home/tiago/git/java8/img/sair.png")); // NOI18N
+        miSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sair.png"))); // NOI18N
         miSair.setText("Sair");
         miSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

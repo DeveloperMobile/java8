@@ -31,7 +31,7 @@
     <Component class="javax.swing.JLabel" name="label2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/tiago/git/java8/img/java.png"/>
+          <Image iconType="3" name="/img/java.png"/>
         </Property>
       </Properties>
     </Component>
@@ -51,7 +51,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/tiago/git/java8/img/java.png"/>
+          <Image iconType="3" name="/img/java.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Labels e Imagens"/>
       </Properties>

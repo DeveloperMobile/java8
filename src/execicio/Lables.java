@@ -39,7 +39,7 @@ public class Lables extends javax.swing.JPanel {
         label1.setText("Aprendendo");
         add(label1);
 
-        label2.setIcon(new javax.swing.ImageIcon("/home/tiago/git/java8/img/java.png")); // NOI18N
+        label2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/java.png"))); // NOI18N
         add(label2);
 
         label3.setForeground(java.awt.Color.blue);
@@ -49,7 +49,7 @@ public class Lables extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Serif", 1, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/tiago/git/java8/img/java.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/java.png"))); // NOI18N
         jLabel1.setText("Labels e Imagens");
         add(jLabel1);
     }// </editor-fold>//GEN-END:initComponents
