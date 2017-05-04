@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -24,7 +25,8 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
             miLista, miListaFoto, miCombo, miAreaTexto, miDialogoMensagem,
-            miDialogoConfirmacao, miDialogoOpcao, miBarraRolagem, miBarraProgresso;
+            miDialogoConfirmacao, miDialogoOpcao, miBarraRolagem, miBarraProgresso,
+            miAbas;
     private ImageIcon imageIcon;
     
     public GuiMenuPrincipal() {
@@ -65,6 +67,7 @@ public class GuiMenuPrincipal extends JFrame {
         miDialogoOpcao = new JMenuItem("Dialogo Opção");
         miBarraRolagem = new JMenuItem("Barra de Rolagem");
         miBarraProgresso = new JMenuItem("Barra de Progresso");
+        miAbas =  new JMenuItem("Abas");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
@@ -79,6 +82,7 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miDialogoOpcao);
         mnExemplos.add(miBarraRolagem);
         mnExemplos.add(miBarraProgresso);
+        mnExemplos.add(miAbas);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -181,6 +185,15 @@ public class GuiMenuPrincipal extends JFrame {
             GuiBarraProgresso guiBarraProgresso = new GuiBarraProgresso();
             contentPane.removeAll();
             contentPane.add(guiBarraProgresso);
+            contentPane.validate();
+            
+        });
+        
+        miAbas.addActionListener((ActionEvent e) -> {
+            
+            GuiAbas guiAbas = new GuiAbas();
+            contentPane.removeAll();
+            contentPane.add(guiAbas);
             contentPane.validate();
             
         });
