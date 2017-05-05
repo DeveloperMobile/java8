@@ -1,13 +1,13 @@
 
 package cap08;
 
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -20,13 +20,13 @@ import javax.swing.KeyStroke;
  */
 public class GuiMenuPrincipal extends JFrame {
     
-    private Container contentPane;
+    private JDesktopPane contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
             miLista, miListaFoto, miCombo, miAreaTexto, miDialogoMensagem,
             miDialogoConfirmacao, miDialogoOpcao, miBarraRolagem, miBarraProgresso,
-            miAbas;
+            miAbas, miFrameInterno;
     private ImageIcon imageIcon;
     
     public GuiMenuPrincipal() {
@@ -40,7 +40,8 @@ public class GuiMenuPrincipal extends JFrame {
         
         setTitle("Menu Principal");
         setBounds(0, 0, 800, 600);
-        contentPane = getContentPane();
+        contentPane = new JDesktopPane();
+        setContentPane(contentPane);
         /* Imagem */
         imageIcon = new ImageIcon("img/sair.png");
         /* Barra de Menu */
@@ -68,6 +69,7 @@ public class GuiMenuPrincipal extends JFrame {
         miBarraRolagem = new JMenuItem("Barra de Rolagem");
         miBarraProgresso = new JMenuItem("Barra de Progresso");
         miAbas =  new JMenuItem("Abas");
+        miFrameInterno = new JMenuItem("Frame Interno");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
@@ -83,6 +85,7 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miBarraRolagem);
         mnExemplos.add(miBarraProgresso);
         mnExemplos.add(miAbas);
+        mnExemplos.add(miFrameInterno);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -195,6 +198,20 @@ public class GuiMenuPrincipal extends JFrame {
             contentPane.removeAll();
             contentPane.add(guiAbas);
             contentPane.validate();
+            
+        });
+        
+        miFrameInterno.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiFrameInterno guiFrameInterno = new GuiFrameInterno();
+                contentPane.removeAll();
+                contentPane.add(guiFrameInterno);
+                contentPane.validate();
+            
+            }
             
         });
         
