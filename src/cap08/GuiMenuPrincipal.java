@@ -1,6 +1,7 @@
 
 package cap08;
 
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -20,13 +21,14 @@ import javax.swing.KeyStroke;
  */
 public class GuiMenuPrincipal extends JFrame {
     
-    private JDesktopPane contentPane;
+    //private JDesktopPane contentPane;
+    private Container contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
             miLista, miListaFoto, miCombo, miAreaTexto, miDialogoMensagem,
             miDialogoConfirmacao, miDialogoOpcao, miBarraRolagem, miBarraProgresso,
-            miAbas, miFrameInterno;
+            miAbas, miFrameInterno, miPedido;
     private ImageIcon imageIcon;
     
     public GuiMenuPrincipal() {
@@ -40,8 +42,9 @@ public class GuiMenuPrincipal extends JFrame {
         
         setTitle("Menu Principal");
         setBounds(0, 0, 800, 600);
-        contentPane = new JDesktopPane();
-        setContentPane(contentPane);
+        //contentPane = new JDesktopPane();
+        //setContentPane(contentPane);
+        contentPane = getContentPane();
         /* Imagem */
         imageIcon = new ImageIcon("img/sair.png");
         /* Barra de Menu */
@@ -70,6 +73,7 @@ public class GuiMenuPrincipal extends JFrame {
         miBarraProgresso = new JMenuItem("Barra de Progresso");
         miAbas =  new JMenuItem("Abas");
         miFrameInterno = new JMenuItem("Frame Interno");
+        miPedido = new JMenuItem("Emissão de Pedidos");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
@@ -86,6 +90,7 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miBarraProgresso);
         mnExemplos.add(miAbas);
         mnExemplos.add(miFrameInterno);
+        mnExemplos.add(miPedido);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -209,6 +214,20 @@ public class GuiMenuPrincipal extends JFrame {
                 GuiFrameInterno guiFrameInterno = new GuiFrameInterno();
                 contentPane.removeAll();
                 contentPane.add(guiFrameInterno);
+                contentPane.validate();
+            
+            }
+            
+        });
+        
+        miPedido.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiPedido guiPedido = new GuiPedido();
+                contentPane.removeAll();
+                contentPane.add(guiPedido);
                 contentPane.validate();
             
             }
