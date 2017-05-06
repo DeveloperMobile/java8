@@ -28,7 +28,7 @@ public class GuiMenuPrincipal extends JFrame {
     private JMenuItem miSair, miBotao, miCaixaOpcao, miRadio, miLabels, 
             miLista, miListaFoto, miCombo, miAreaTexto, miDialogoMensagem,
             miDialogoConfirmacao, miDialogoOpcao, miBarraRolagem, miBarraProgresso,
-            miAbas, miFrameInterno, miPedido;
+            miAbas, miFrameInterno, miPedido, miMascara;
     private ImageIcon imageIcon;
     
     public GuiMenuPrincipal() {
@@ -74,6 +74,7 @@ public class GuiMenuPrincipal extends JFrame {
         miAbas =  new JMenuItem("Abas");
         miFrameInterno = new JMenuItem("Frame Interno");
         miPedido = new JMenuItem("Emissão de Pedidos");
+        miMascara = new JMenuItem("Mascaras");
         mnArquivo.add(miSair);
         mnExemplos.add(miBotao);
         mnExemplos.add(miCaixaOpcao);
@@ -91,6 +92,7 @@ public class GuiMenuPrincipal extends JFrame {
         mnExemplos.add(miAbas);
         mnExemplos.add(miFrameInterno);
         mnExemplos.add(miPedido);
+        mnExemplos.add(miMascara);
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         setJMenuBar(mnBarra);
@@ -228,6 +230,20 @@ public class GuiMenuPrincipal extends JFrame {
                 GuiPedido guiPedido = new GuiPedido();
                 contentPane.removeAll();
                 contentPane.add(guiPedido);
+                contentPane.validate();
+            
+            }
+            
+        });
+        
+        miMascara.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            
+                GuiMascara guiMascara = new GuiMascara();
+                contentPane.removeAll();
+                contentPane.add(guiMascara);
                 contentPane.validate();
             
             }
