@@ -3,7 +3,6 @@ package cap12;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLDataException;
 import java.sql.SQLException;
 
 /**
@@ -28,12 +27,13 @@ public class FilmesDAO {
     
     public boolean localizar() {
         
-        sql = "select * from filmes qhere codigo=?";
+        sql = "select * from filmes where codigo=?";
         
         try {
           
             statement = bd.connection.prepareCall(sql);
             statement.setString(1, filme.getCodigo());
+            resultSet = statement.executeQuery();
             resultSet.next();
             filme.setCodigo(resultSet.getString(1));
             filme.setTitulo(resultSet.getString(2));
