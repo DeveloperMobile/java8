@@ -15,23 +15,23 @@ import javax.swing.JTextField;
  *
  * @author Login
  */
-public class GuiCadastroFilmes extends JFrame {
+public class GuiCadastroUsuarios extends JFrame {
     
-    private JLabel label1, label2, label3, label4, label5;
-    private JButton btGravar, btAlterar, btExcluir, btNovo, btLocalizar, btCancelar, btSair;
-    private JTextField tfCodigo, tfTitulo, tfGenero, tfProdutora, tfDatcom;
-    private FilmesDAO filmes;
+     private JLabel label1, label2, label3;
+     private JTextField tfCodigo, tfNome, tfEmail;
+     private JButton btGravar, btAlterar, btExcluir, btNovo, btLocalizar, btCancelar, btSair;
+     private UsuarioDAO usuarioDAO;
     
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         
-        JFrame frame = new GuiCadastroFilmes();
+        JFrame frame = new GuiCadastroUsuarios();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         
     }
     
-    public GuiCadastroFilmes() {
+    public GuiCadastroUsuarios() {
         
         inicializarComponentes();
         definirEventos();
@@ -42,15 +42,11 @@ public class GuiCadastroFilmes extends JFrame {
         
         setLayout(new FlowLayout(FlowLayout.LEFT));
         label1 = new JLabel("Código");
-        label2 = new JLabel("Título");
-        label3 = new JLabel("Gênero");
-        label4 = new JLabel("Produtora");
-        label5 = new JLabel("Data de Compra  ");
-        tfCodigo = new JTextField(10);
-        tfTitulo = new JTextField(35);
-        tfGenero = new JTextField(10);
-        tfProdutora = new JTextField(15);
-        tfDatcom = new JTextField(8);
+        label2 = new JLabel("Nome");
+        label3 = new JLabel("Email");
+        tfCodigo = new JTextField(5);
+        tfNome = new JTextField(16);
+        tfEmail = new JTextField(16);
         btGravar = new JButton(new ImageIcon("img/gravar.png"));
         btGravar.setToolTipText("Gravar");
         btAlterar = new JButton(new ImageIcon("img/alterar.png"));
@@ -68,30 +64,25 @@ public class GuiCadastroFilmes extends JFrame {
         add(label1);
         add(tfCodigo);
         add(label2);
-        add(tfTitulo);
+        add(tfNome);
         add(label3);
-        add(tfGenero);
-        add(label4);
-        add(tfProdutora);
-        add(label5);
-        add(tfDatcom);
-        add(btNovo);
-        add(btLocalizar);
+        add(tfEmail);
         add(btGravar);
         add(btAlterar);
         add(btExcluir);
+        add(btNovo);
+        add(btLocalizar);
         add(btCancelar);
         add(btSair);
         setTitle("Cadastramento de Filmes");
-        setBounds(200, 100, 610, 125);
+        setBounds(200, 100, 565, 100);
         setResizable(false);
         setBotoes(true, true, false, false, false, false);
-        filmes = new FilmesDAO();
-        if (!filmes.bd.getConnection()) {
+        usuarioDAO = new UsuarioDAO();
+        if (!usuarioDAO.bd.getConnection()) {
             JOptionPane.showMessageDialog(null, "Falha na conexão, o sistema será fechado");
             System.exit(0);
         }
-        
     }
     
     private void definirEventos() {
@@ -101,7 +92,7 @@ public class GuiCadastroFilmes extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
             
-                filmes.bd.close();
+                usuarioDAO.bd.close();
                 System.exit(0);
             
             }
@@ -142,36 +133,22 @@ public class GuiCadastroFilmes extends JFrame {
                     return;
                 }
                 
-                if (tfTitulo.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "O título não pode ser vazio!");
-                    tfTitulo.requestFocus();
+                if (tfNome.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "O nome não pode ser vazio!");
+                    tfNome.requestFocus();
                     return;
                 }
                 
-                if (tfGenero.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "O gênero não pode ser vazio!");
-                    tfGenero.requestFocus();
+                if (tfEmail.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "O email não pode ser vazio!");
+                    tfEmail.requestFocus();
                     return;
                 }
                 
-                if (tfProdutora.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "A produtora não pode ser vazia!");
-                    tfProdutora.requestFocus();
-                    return;
-                }
-            
-                if (tfDatcom.getText().equals("")) {
-                    JOptionPane.showMessageDialog(null, "A data de compra não pode ser vazia!");
-                    tfDatcom.requestFocus();
-                    return;
-                }
-                
-                filmes.filme.setCodigo(tfCodigo.getText());
-                filmes.filme.setTitulo(tfTitulo.getText());
-                filmes.filme.setGenero(tfGenero.getText());
-                filmes.filme.setProdutora(tfProdutora.getText());
-                filmes.filme.setDataCompra(tfDatcom.getText());
-                JOptionPane.showMessageDialog(null, filmes.atualizar(FilmesDAO.INCLUSAO));
+                usuarioDAO.usuario.setCodigo(tfCodigo.getText());
+                usuarioDAO.usuario.setNome(tfNome.getText());
+                usuarioDAO.usuario.setEmail(tfEmail.getText());
+                JOptionPane.showMessageDialog(null, usuarioDAO.atualizar(UsuarioDAO.INCLUSAO));
                 limparCampos();
                 
             }
@@ -183,12 +160,10 @@ public class GuiCadastroFilmes extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
             
-                filmes.filme.setCodigo(tfCodigo.getText());
-                filmes.filme.setTitulo(tfTitulo.getText());
-                filmes.filme.setGenero(tfGenero.getText());
-                filmes.filme.setProdutora(tfProdutora.getText());
-                filmes.filme.setDataCompra(tfDatcom.getText());
-                JOptionPane.showMessageDialog(null, filmes.atualizar(FilmesDAO.ALTERACAO));
+                usuarioDAO.usuario.setCodigo(tfCodigo.getText());
+                usuarioDAO.usuario.setNome(tfNome.getText());
+                usuarioDAO.usuario.setEmail(tfEmail.getText());
+                JOptionPane.showMessageDialog(null, usuarioDAO.atualizar(UsuarioDAO.ALTERACAO));
                 limparCampos();
             
             }
@@ -200,15 +175,15 @@ public class GuiCadastroFilmes extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
             
-                filmes.filme.setCodigo(tfCodigo.getText());
-                filmes.localizar();
+                usuarioDAO.usuario.setCodigo(tfCodigo.getText());
+                usuarioDAO.localizar();
                 
-                int n = JOptionPane.showConfirmDialog(null, filmes.filme.getTitulo(),
-                        " Excluir o Filme? ", JOptionPane.YES_NO_OPTION);
+                int n = JOptionPane.showConfirmDialog(null, usuarioDAO.usuario.getNome(),
+                        " Excluir o Usuário? ", JOptionPane.YES_NO_OPTION);
                 
                 if (n == JOptionPane.YES_OPTION) {
                 
-                    JOptionPane.showMessageDialog(null, filmes.atualizar(FilmesDAO.EXCLUSAO));
+                    JOptionPane.showMessageDialog(null, usuarioDAO.atualizar(UsuarioDAO.EXCLUSAO));
                     limparCampos();
                     
                 }  
@@ -233,10 +208,8 @@ public class GuiCadastroFilmes extends JFrame {
     private void limparCampos() {
         
         tfCodigo.setText("");
-        tfTitulo.setText("");
-        tfGenero.setText("");
-        tfProdutora.setText("");
-        tfDatcom.setText("");
+        tfNome.setText("");
+        tfEmail.setText("");
         tfCodigo.requestFocus();
         setBotoes(true, true, false, false, false, false);
         
@@ -244,18 +217,16 @@ public class GuiCadastroFilmes extends JFrame {
     
     private void atualizarCampos() {
         
-        filmes.filme.setCodigo(tfCodigo.getText());
-        if (filmes.localizar()) {
-            tfCodigo.setText(filmes.filme.getCodigo());
-            tfTitulo.setText(filmes.filme.getTitulo());
-            tfGenero.setText(filmes.filme.getGenero());
-            tfProdutora.setText(filmes.filme.getProdutora());
-            tfDatcom.setText(filmes.filme.getDataCompra());
+        usuarioDAO.usuario.setCodigo(tfCodigo.getText());
+        if (usuarioDAO.localizar()) {
+            tfCodigo.setText(usuarioDAO.usuario.getCodigo());
+            tfNome.setText(usuarioDAO.usuario.getNome());
+            tfEmail.setText(usuarioDAO.usuario.getEmail());
             setBotoes(true, true, false, true, true, true);
             
         } else {
             
-            JOptionPane.showMessageDialog(null, "Filme não encontrado!");
+            JOptionPane.showMessageDialog(null, "Usuário não encontrado!");
             limparCampos();
             
         }
