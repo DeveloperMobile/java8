@@ -16,9 +16,9 @@ public class BD {
     public Connection connection = null;
     private final String DRIVER = "com.mysql.jdbc.Driver";
     private final String DBNAME = "banco";
-    private final String URL = "jdbc:mysql://localhost:3306/" + DBNAME;
+    private final String URL = "jdbc:mysql://192.168.0.49:3306/" + DBNAME;
     private final String LOGIN = "root";
-    private final String SENHA = "";
+    private final String SENHA = "developer";
     
     /**
      * Método que faz a conexão com o banco de dados retorna true se houve
@@ -28,7 +28,7 @@ public class BD {
         try {
             
             Class.forName(DRIVER);
-            connection = DriverManager.getConnection(URL, "root", "");
+            connection = DriverManager.getConnection(URL, "root", "developer");
             System.out.println("Conectou");
             return true;
             
